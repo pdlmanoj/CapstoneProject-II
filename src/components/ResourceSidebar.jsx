@@ -2,143 +2,138 @@ import React, { useState, useEffect } from 'react';
 
 const ResourceSidebar = ({ isOpen, selectedNode, onClose }) => {
   const [resources, setResources] = useState({
-    videos: [],
-    articles: [],
-    books: []
+    topicInfo: '',
+    courses: []
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchResources = async () => {
-      if (!selectedNode) return;
+      if (!selectedNode || !selectedNode.data) return;
 
       setIsLoading(true);
       setError(null);
 
       try {
+        // Get the clean topic name from the node label
+        const cleanTopic = selectedNode.data.label.replace(/^\d+(\.\d+)*\s*/, '').trim();
+        console.log('Fetching resources for topic:', cleanTopic);
+
         const response = await fetch('http://localhost:8000/api/resources/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ topic: selectedNode.data.label })
+          body: JSON.stringify({ topic: cleanTopic })
         });
 
         const data = await response.json();
+        console.log('Resource API response:', data);
 
         if (!response.ok) {
-          throw new Error(data.detail || 'Failed to fetch resources');
+          throw new Error(data.error || 'Failed to fetch resources');
         }
 
-        setResources(data.resources);
+        if (data.success && data.resources) {
+          console.log('Setting resources:', data.resources);
+          setResources(data.resources);
+        } else {
+          throw new Error('Invalid response format');
+        }
       } catch (err) {
-        setError(err.message);
         console.error('Error fetching resources:', err);
+        setError(err.message);
       } finally {
         setIsLoading(false);
       }
     };
 
+    // Fetch resources whenever the selectedNode changes or sidebar opens
     if (isOpen && selectedNode) {
       fetchResources();
     }
-  }, [isOpen, selectedNode]);
+  }, [isOpen, selectedNode]);  // Added selectedNode as dependency
+
+  // Clear resources when sidebar closes
+  useEffect(() => {
+    if (!isOpen) {
+      setResources({
+        topicInfo: '',
+        courses: []
+      });
+      setError(null);
+    }
+  }, [isOpen]);
 
   if (!isOpen || !selectedNode) return null;
 
-  const ResourceCard = ({ resource }) => (
-    <a
-      href={resource.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block p-4 mb-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-200"
-    >
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-sm font-medium text-blue-400">{resource.type}</span>
-        <span className="text-xs text-gray-400">{resource.duration}</span>
-      </div>
-      <h3 className="text-lg font-semibold text-white mb-1">{resource.title}</h3>
-      <p className="text-sm text-gray-400">{resource.platform}</p>
-      {resource.thumbnail && (
-        <img 
-          src={resource.thumbnail} 
-          alt={resource.title}
-          className="w-full h-32 object-cover rounded-lg mt-2"
-        />
-      )}
-      {resource.description && (
-        <p className="text-sm text-gray-300 mt-2 line-clamp-2">
-          {resource.description}
-        </p>
-      )}
-      {resource.channel && (
-        <p className="text-xs text-gray-400 mt-1">
-          By {resource.channel}
-        </p>
-      )}
-    </a>
-  );
-
-  const ResourceSection = ({ title, items }) => (
-    <div className="mb-8">
-      <h3 className="text-lg font-semibold text-white mb-4">{title}</h3>
-      <div className="space-y-4">
-        {items.map((resource, index) => (
-          <ResourceCard key={index} resource={resource} />
-        ))}
-      </div>
-    </div>
-  );
+  // Get clean topic name without numbering
+  const cleanTopic = selectedNode.data.label.replace(/^\d+(\.\d+)*\s*/, '').trim();
 
   return (
-    <div className="fixed right-0 top-0 h-full w-96 bg-gray-900 shadow-xl transform transition-transform duration-300 ease-in-out z-50 overflow-y-auto">
-      <div className="p-6">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-bold text-white">
-            Resources for {selectedNode.data.label}
-          </h2>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-white transition-colors duration-200"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <div className="fixed right-0 top-0 h-full w-96 bg-gray-900 shadow-xl overflow-y-auto z-50">
+      <div className="p-6 relative">
+        {/* Header */}
+        <div className="sticky top-0 z-50 bg-gray-900 pb-4 mb-6">
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-white">Resources</h1>
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label="Close sidebar"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
 
+        {/* Content */}
         {isLoading ? (
-          <div className="flex items-center justify-center h-32">
+          <div className="flex justify-center items-center h-40">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
           </div>
         ) : error ? (
-          <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 text-red-500">
-            {error}
-          </div>
+          <div className="text-red-500 text-center py-4">{error}</div>
         ) : (
-          <>
-            {resources.videos.length > 0 && (
-              <ResourceSection title="Video Tutorials" items={resources.videos} />
+          <div className="space-y-8">
+            {/* Topic Information */}
+            <div className="bg-gray-800 rounded-lg p-6">
+              <h2 className="text-xl font-bold text-white mb-3">What is {cleanTopic}?</h2>
+              <p className="text-gray-300 leading-relaxed">{resources.topicInfo || 'No information available for this topic.'}</p>
+            </div>
+
+            {/* Courses */}
+            {resources.courses && resources.courses.length > 0 && (
+              <div className="space-y-4">
+                <h2 className="text-xl font-bold text-white">Recommended Courses</h2>
+                <div className="space-y-4">
+                  {resources.courses.map((course, index) => (
+                    <div key={index} className="bg-gray-800 rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-lg font-semibold text-white">{course.title}</h3>
+                        <span className="bg-blue-600 text-xs text-white px-2 py-1 rounded">
+                          {course.platform}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-400 mb-2">Instructor: {course.instructor}</p>
+                      <p className="text-sm text-gray-300 mb-3">{course.description}</p>
+                      <a
+                        href={course.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                      >
+                        View Course
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
             )}
-            {resources.articles.length > 0 && (
-              <ResourceSection title="Articles & Documentation" items={resources.articles} />
-            )}
-            {resources.books.length > 0 && (
-              <ResourceSection title="Books" items={resources.books} />
-            )}
-          </>
+          </div>
         )}
       </div>
     </div>

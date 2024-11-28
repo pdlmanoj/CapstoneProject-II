@@ -1,0 +1,9 @@
+django==4.2.7
+djangorestframework==3.14.0
+django-cors-headers==4.3.0
+google-api-python-client==2.108.0
+python-dotenv==1.0.0
+requests==2.31.0
+transformers==4.35.2
+torch==2.1.1
+accelerate==0.24.1

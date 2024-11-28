@@ -7,19 +7,32 @@ import BrightPathAI from "./BrightPathAI";
 import SignupPage from "./SignupPage";
 import Dashboard from "./Dashboard";
 import RoadmapPage from "./pages/RoadmapPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <Router>
-      
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<BrightPathAI />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/roadmap" element={<RoadmapPage />} />
+        <Route 
+          path="/dashboard" 
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/roadmap" 
+          element={
+            <ProtectedRoute>
+              <RoadmapPage />
+            </ProtectedRoute>
+          } 
+        />
       </Routes>
-      
     </Router>
   );
 }

@@ -108,7 +108,7 @@ function Dashboard() {
     try {
       const lines = markdown.split('\n');
       let roadmapStructure = {
-        title: '',
+        title: prompt.trim().toUpperCase(),
         subtopics: []
       };
 
@@ -119,9 +119,8 @@ function Dashboard() {
         const cleanLine = line.trim();
         if (!cleanLine) continue;
 
-        // First non-empty line is the main title
+        // Skip the first line since we're using the prompt as title
         if (isFirstLine) {
-          roadmapStructure.title = cleanLine.split('(')[0].trim();
           isFirstLine = false;
           continue;
         }
