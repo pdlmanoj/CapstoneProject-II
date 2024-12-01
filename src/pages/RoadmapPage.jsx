@@ -8,7 +8,7 @@ const RoadmapPage = () => {
   const { roadmapData, prompt } = location.state || {};
 
   const handleBack = () => {
-    navigate('/');
+    navigate('/dashboard');
   };
 
   if (!roadmapData) {

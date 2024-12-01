@@ -104,55 +104,66 @@ function Dashboard() {
     }
   };
 
-  const parseRoadmapToStructure = (markdown) => {
+  const parseRoadmapToStructure = (roadmapData) => {
     try {
-      const lines = markdown.split('\n');
-      let roadmapStructure = {
-        title: prompt.trim().toUpperCase(),
-        subtopics: []
-      };
-
-      let currentSubtopic = null;
-      let isFirstLine = true;
-
-      for (const line of lines) {
-        const cleanLine = line.trim();
-        if (!cleanLine) continue;
-
-        // Skip the first line since we're using the prompt as title
-        if (isFirstLine) {
-          isFirstLine = false;
-          continue;
-        }
-
-        // Check for numbered sections (e.g., "1. Introduction to CV", "2. Image Processing")
-        const sectionMatch = cleanLine.match(/^(\d+\.)\s*(.*?)(?:\s*\(.*\))?$/);
-        if (sectionMatch) {
-          currentSubtopic = {
-            title: sectionMatch[2].trim(),
-            children: []
-          };
-          roadmapStructure.subtopics.push(currentSubtopic);
-          continue;
-        }
-
-        // Skip subsection numbers (e.g., "1.1", "2.1")
-        if (/^\d+\.\d+/.test(cleanLine)) {
-          continue;
-        }
-
-        // Add other lines as children to current subtopic
-        if (currentSubtopic && 
-            !cleanLine.includes('hours)') && 
-            !cleanLine.includes('hour)') &&
-            !cleanLine.match(/^\d+\./)) {
-          currentSubtopic.children.push({
-            title: cleanLine
-          });
-        }
+      // If roadmapData is already in the correct format (from Gemini API)
+      if (roadmapData && roadmapData.title && roadmapData.subtopics) {
+        return roadmapData;
       }
 
-      return roadmapStructure;
+      // If it's a string (from local model), parse it as before
+      if (typeof roadmapData === 'string') {
+        const lines = roadmapData.split('\n');
+        let roadmapStructure = {
+          title: prompt.trim().toUpperCase(),
+          subtopics: []
+        };
+
+        let currentSubtopic = null;
+        let isFirstLine = true;
+
+        for (const line of lines) {
+          const cleanLine = line.trim();
+          if (!cleanLine) continue;
+
+          // Skip the first line since we're using the prompt as title
+          if (isFirstLine) {
+            isFirstLine = false;
+            continue;
+          }
+
+          // Check for numbered sections (e.g., "1. Introduction to CV", "2. Image Processing")
+          const sectionMatch = cleanLine.match(/^(\d+\.)\s*(.*?)(?:\s*\(.*\))?$/);
+          if (sectionMatch) {
+            currentSubtopic = {
+              title: sectionMatch[2].trim(),
+              children: []
+            };
+            roadmapStructure.subtopics.push(currentSubtopic);
+            continue;
+          }
+
+          // Skip subsection numbers (e.g., "1.1", "2.1")
+          if (/^\d+\.\d+/.test(cleanLine)) {
+            continue;
+          }
+
+          // Add other lines as children to current subtopic
+          if (currentSubtopic && 
+              !cleanLine.includes('hours)') && 
+              !cleanLine.includes('hour)') &&
+              !cleanLine.match(/^\d+\./)) {
+            currentSubtopic.children.push({
+              title: cleanLine
+            });
+          }
+        }
+
+        return roadmapStructure;
+      }
+
+      console.error('Invalid roadmap data format');
+      return null;
     } catch (error) {
       console.error('Error parsing roadmap:', error);
       return null;

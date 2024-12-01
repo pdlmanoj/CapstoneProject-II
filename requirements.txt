@@ -6,3 +6,5 @@ torch
 transformers==4.35.2
 python-dotenv==1.0.0
 peft
+numpy<2.0
+google-generativeai
