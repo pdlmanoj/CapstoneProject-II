@@ -6,7 +6,7 @@ import json
 import logging
 import traceback
 from peft import PeftModel
-from .gemini_generator import GeminiRoadmapGenerator  # Updated import
+from .backup_generator import BackupModelGenerator  # Updated import
 
 logger = logging.getLogger(__name__)
 
@@ -88,7 +88,6 @@ class RoadmapGenerator:
             
             # Extract the roadmap part (after the prompt)
             roadmap = generated_text[len(formatted_prompt):].strip()
-            logger.debug(f"Local model output: {roadmap}")
             
             try:
                 # Try to parse as JSON if the output is in JSON format
@@ -103,47 +102,45 @@ class RoadmapGenerator:
                         "source": "local_model"
                     }
                 else:
-                    # If local model output doesn't match expected structure, try Gemini
-                    logger.info("Local model output doesn't match expected structure, trying Gemini API...")
-                    gemini_generator = GeminiRoadmapGenerator()
-                    gemini_roadmap = gemini_generator.generate_roadmap(prompt)
+                    # If local model output doesn't match expected structure, try backup model
+                    backup_generator = BackupModelGenerator()
+                    backup_roadmap = backup_generator.generate_roadmap(prompt)
                     
-                    if gemini_roadmap and isinstance(gemini_roadmap, dict):
-                        if gemini_roadmap.get("success", False):
+                    if backup_roadmap:
+                        if backup_roadmap["success"]:
                             return {
                                 "success": True,
-                                "roadmap": gemini_roadmap["roadmap"],
+                                "roadmap": backup_roadmap["roadmap"],
                                 "format": "json",
-                                "source": "gemini"
+                                "source": "local_model"
                             }
                         else:
-                            logger.error(f"Gemini API error: {gemini_roadmap.get('error', 'Unknown error')}")
+                            logger.error(f"Local Model error: {backup_roadmap.get('error', 'Unknown error')}")
                     
                     return {
                         "success": False,
-                        "error": "Both local model and Gemini failed to generate valid roadmap"
+                        "error": "local model failed to generate valid roadmap"
                     }
                         
             except json.JSONDecodeError:
-                # If local model output is not valid JSON, try Gemini
-                logger.info("Local model output is not valid JSON, trying Gemini API...")
-                gemini_generator = GeminiRoadmapGenerator()
-                gemini_roadmap = gemini_generator.generate_roadmap(prompt)
+                # If parsing fails, try backup model
+                backup_generator = BackupModelGenerator()
+                backup_roadmap = backup_generator.generate_roadmap(prompt)
                 
-                if gemini_roadmap and isinstance(gemini_roadmap, dict):
-                    if gemini_roadmap.get("success", False):
+                if backup_roadmap:
+                    if backup_roadmap["success"]:
                         return {
                             "success": True,
-                            "roadmap": gemini_roadmap["roadmap"],
+                            "roadmap": backup_roadmap["roadmap"],
                             "format": "json",
-                            "source": "gemini"
+                            "source": "local_model"
                         }
                     else:
-                        logger.error(f"Gemini API error: {gemini_roadmap.get('error', 'Unknown error')}")
+                        logger.error(f"Local Model error: {backup_roadmap.get('error', 'Unknown error')}")
                 
                 return {
                     "success": False,
-                    "error": "Failed to generate roadmap with both models"
+                    "error": "Failed to generate roadmap with local model"
                 }
                     
         except Exception as e:
