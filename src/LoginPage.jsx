@@ -1,100 +1,65 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import Header from './Header';
+import React from 'react';
+import { SignIn } from "@clerk/clerk-react";
 
-function LoginPage() {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-  const [error, setError] = useState('');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    try {
-      // Here you would typically make an API call to your backend
-      // For now, we'll simulate a successful login
-      if (formData.email && formData.password) {
-        // Set authentication status
-        sessionStorage.setItem('isLoggedIn', 'true');
-        sessionStorage.setItem('userEmail', formData.email);
-        
-        // Redirect to dashboard
-        navigate('/dashboard');
-      } else {
-        setError('Please fill in all fields');
-      }
-    } catch (error) {
-      setError('Login failed. Please try again.');
-    }
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
+const LoginPage = () => {
   return (
-    <div className="min-h-screen bg-neutral-950">
-      <Header />
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="bg-neutral-900 p-8 rounded-lg shadow-lg w-96">
-          <h2 className="text-3xl font-bold mb-6 text-white text-center">Login</h2>
-          {error && (
-            <div className="bg-red-500 text-white p-3 rounded mb-4 text-center">
-              {error}
-            </div>
-          )}
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-300">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md bg-neutral-800 border-gray-700 text-white shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-300">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md bg-neutral-800 border-gray-700 text-white shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-colors"
-            >
-              Login
-            </button>
-          </form>
-          <div className="mt-4 text-center text-gray-400">
-            Don't have an account?{' '}
-            <Link to="/signup" className="text-purple-500 hover:text-purple-400">
-              Sign up
-            </Link>
-          </div>
-        </div>
+    <div className="flex-grow flex items-center justify-center py-12 px-4">
+      <div className="w-full max-w-md">
+        <SignIn 
+          routing="path" 
+          path="/login" 
+          afterSignInUrl="/dashboard"
+          signUpUrl="/signup"
+          appearance={{
+            elements: {
+              rootBox: "",
+              card: "bg-neutral-900 border border-neutral-800",
+              headerTitle: "text-white",
+              headerSubtitle: "text-gray-400",
+              socialButtonsBlockButton: "bg-neutral-800 border-neutral-700 text-white hover:bg-neutral-700",
+              dividerLine: "bg-neutral-800",
+              dividerText: "text-gray-400",
+              formFieldLabel: "text-gray-300",
+              formFieldInput: "bg-neutral-800 border-neutral-700 text-white",
+              formButtonPrimary: "bg-purple-600 hover:bg-purple-700",
+              footerActionLink: "text-purple-500 hover:text-purple-400",
+              formFieldInputShowPasswordButton: "text-gray-400",
+              otpCodeFieldInput: "!bg-neutral-800 !border-neutral-700 !text-white",
+              footer: "bg-neutral-900 text-gray-400",
+              footerText: "text-gray-400",
+              footerActionText: "text-gray-400",
+              footerPageLink: "text-purple-500 hover:text-purple-400",
+              card__main: "bg-neutral-900",
+              alternativeMethodsBlockButton: "bg-neutral-800 border-neutral-700 text-white hover:bg-neutral-700",
+              identityPreviewText: "text-gray-400",
+              identityPreviewEditButton: "text-purple-500 hover:text-purple-400",
+              formResendCodeLink: "text-purple-500 hover:text-purple-400",
+              alert: "bg-neutral-800 border-neutral-700 text-white",
+              alertText: "text-gray-400",
+              formFieldSuccessText: "text-green-500",
+              formFieldErrorText: "text-red-500",
+              selectButton: "bg-neutral-800 border-neutral-700 text-white hover:bg-neutral-700",
+              selectButtonText: "text-white",
+              selectOptionText: "text-gray-400"
+            },
+            layout: {
+              socialButtonsPlacement: "bottom",
+              showOptionalFields: false
+            },
+            variables: {
+              colorPrimary: "#8B5CF6",
+              colorBackground: "#171717",
+              colorText: "#FFFFFF",
+              colorTextSecondary: "#9CA3AF",
+              colorDanger: "#EF4444",
+              colorSuccess: "#10B981",
+              borderRadius: "0.5rem"
+            }
+          }}
+        />
       </div>
     </div>
   );
-}
+};
 
 export default LoginPage;

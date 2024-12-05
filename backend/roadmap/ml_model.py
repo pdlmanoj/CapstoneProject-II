@@ -51,6 +51,15 @@ class RoadmapGenerator:
     def generate_roadmap(self, prompt):
         """Generate roadmap based on the input prompt"""
         try:
+            # First check if the topic is tech-related
+            backup_generator = BackupModelGenerator()
+            if not backup_generator.is_tech_related(prompt):
+                logger.info(f"Non-tech topic rejected: {prompt}")
+                return {
+                    "success": False,
+                    "error": "Currently, we only support technology-related learning roadmaps."
+                }
+
             if self.model is None or self.tokenizer is None:
                 raise ValueError("Model or tokenizer not initialized properly")
 
@@ -112,7 +121,7 @@ class RoadmapGenerator:
                                 "success": True,
                                 "roadmap": backup_roadmap["roadmap"],
                                 "format": "json",
-                                "source": "local_model"
+                                "source": "backup_model"
                             }
                         else:
                             logger.error(f"Local Model error: {backup_roadmap.get('error', 'Unknown error')}")
@@ -133,7 +142,7 @@ class RoadmapGenerator:
                             "success": True,
                             "roadmap": backup_roadmap["roadmap"],
                             "format": "json",
-                            "source": "local_model"
+                            "source": "backup_model"
                         }
                     else:
                         logger.error(f"Local Model error: {backup_roadmap.get('error', 'Unknown error')}")

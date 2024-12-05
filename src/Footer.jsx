@@ -3,8 +3,8 @@ import { FaYoutube, FaLinkedin, FaDiscord, FaTwitter } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="w-full text-center text-white bg-black-900 py-8 mt-10">
-      <hr className="border-t border-gray-700 mb-6" />
+    <footer className="w-full text-center text-white bg-neutral-900 py-8">
+      <hr className="border-t border-neutral-800 mb-6" />
       <div className="flex justify-center gap-6 mb-4 text-2xl text-gray-400">
         <a
           href="https://youtube.com"
@@ -44,23 +44,21 @@ function Footer() {
         </a>
       </div>
       <p className="text-sm text-gray-400 mb-1">
-        Copyright © 2024 brightpathai.io All rights reserved.
+        Copyright 2024 brightpathai.io All rights reserved.
       </p>
       <p className="text-sm text-gray-400 mb-4">
         contact:{" "}
-        <a href="mailto:support@neetcode.io" className="text-white">
+        <a href="mailto:support@brightpathai.io" className="text-purple-400 hover:text-purple-300">
           support@brightpathai.io
         </a>
       </p>
-      <div className="flex justify-center gap-4 text-sm text-blue-500">
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-          Github
+      <div className="flex justify-center gap-4 text-sm text-gray-400">
+        <a href="/privacy" className="hover:text-purple-400">
+          Privacy Policy
         </a>
-        <a href="/privacy" className="hover:text-blue-400">
-          Privacy
-        </a>
-        <a href="/terms" className="hover:text-blue-400">
-          Terms
+        <span>•</span>
+        <a href="/terms" className="hover:text-purple-400">
+          Terms of Service
         </a>
       </div>
     </footer>

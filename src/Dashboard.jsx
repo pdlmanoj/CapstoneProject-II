@@ -1,107 +1,48 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import Header from "./Header";
-import Footer from "./Footer";
+import { useClerk, useUser } from "@clerk/clerk-react";
 import { FaBook, FaRocket, FaBrain, FaChartLine, FaClock, FaTrophy, FaDatabase, FaRobot, FaShieldAlt, FaCubes, FaCloud, FaMobile, FaGamepad, FaCode, FaSearch } from "react-icons/fa";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import './markdown.css';
 import RoadmapFlow from './components/RoadmapFlow';
+import roadmapData from '../dataset.json';
 
 function Dashboard() {
   const navigate = useNavigate();
+  const { isLoaded, isSignedIn } = useUser();
+  const [isLoading, setIsLoading] = useState(false);
   const [prompt, setPrompt] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState("");
 
-  const popularRoadmaps = [
-    { 
-      icon: FaDatabase, 
-      title: "Data Science", 
-      description: "Learn data analysis, visualization, and machine learning" 
-    },
-    { 
-      icon: FaRobot, 
-      title: "Machine Learning", 
-      description: "Master AI algorithms and neural networks" 
-    },
-    { 
-      icon: FaShieldAlt, 
-      title: "Cyber Security", 
-      description: "Explore security principles and best practices" 
-    },
-    { 
-      icon: FaCubes, 
-      title: "Blockchain", 
-      description: "Understand blockchain technology and smart contracts" 
-    },
-    { 
-      icon: FaCloud, 
-      title: "Cloud Computing", 
-      description: "Learn cloud services and deployment strategies" 
-    },
-    { 
-      icon: FaMobile, 
-      title: "Mobile Development", 
-      description: "Build iOS and Android applications" 
-    },
-    { 
-      icon: FaGamepad, 
-      title: "Game Development", 
-      description: "Create engaging games and interactive experiences" 
-    },
-    { 
-      icon: FaCode, 
-      title: "Full Stack Development", 
-      description: "Master both frontend and backend development" 
-    }
-  ];
-
+  // Redirect if not authenticated
   useEffect(() => {
-    sessionStorage.setItem("isLoggedIn", "true");
-  }, []);
-
-  const handleGenerateRoadmap = async () => {
-    if (!prompt.trim()) return;
-    
-    setIsGenerating(true);
-    setError('');
-    
-    try {
-      const response = await fetch('http://localhost:8000/api/generate/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ prompt: prompt.trim() })
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to generate roadmap');
-      }
-      
-      if (!data.success) {
-        setError(data.error || 'Failed to generate roadmap');
-        return;
-      }
-      
-      const roadmapData = parseRoadmapToStructure(data.roadmap);
-      // Navigate to roadmap page with data
-      navigate('/roadmap', { 
-        state: { 
-          roadmapData,
-          prompt: prompt.trim()
-        }
-      });
-      
-    } catch (error) {
-      console.error('Error generating roadmap:', error);
-      setError(error.message || 'Failed to generate roadmap');
-    } finally {
-      setIsGenerating(false);
+    if (isLoaded && !isSignedIn) {
+      navigate('/login');
     }
+  }, [isLoaded, isSignedIn, navigate]);
+
+  // Show loading state while checking auth
+  if (!isLoaded) {
+    return (
+      <div className="min-h-screen bg-neutral-950 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+      </div>
+    );
+  }
+
+  const transformRoadmapData = (roadmapData) => {
+    // Transform the data structure to match what RoadmapFlow expects
+    return {
+      title: roadmapData.name.toUpperCase(),
+      subtopics: roadmapData.children.map(topic => ({
+        title: topic.name.replace(/^\d+\.\s*/, ''), // Remove numbering
+        children: topic.children.map(child => ({
+          title: child.name.replace(/^\d+\.\d+\s*/, '') // Remove numbering
+        }))
+      }))
+    };
   };
 
   const parseRoadmapToStructure = (roadmapData) => {
@@ -170,10 +111,124 @@ function Dashboard() {
     }
   };
 
+  const handleCategoryClick = (title) => {
+    setIsLoading(true);
+    try {
+      // Find the roadmap data for the selected category
+      const selectedRoadmap = roadmapData.find(
+        item => item.topic.toLowerCase() === title.toLowerCase()
+      );
+
+      if (!selectedRoadmap) {
+        throw new Error(`Roadmap not found for ${title}`);
+      }
+
+      // Transform the data into the format expected by RoadmapFlow
+      const transformedData = transformRoadmapData(selectedRoadmap.roadmap);
+
+      // Navigate to roadmap page with the transformed data
+      navigate('/roadmap', { 
+        state: { 
+          roadmapData: transformedData,
+          prompt: title
+        }
+      });
+    } catch (error) {
+      console.error('Error loading roadmap:', error);
+      setError(error.message || 'Failed to load roadmap');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGenerateRoadmap = async () => {
+    if (!prompt.trim()) return;
+    
+    setIsGenerating(true);
+    setError('');
+    
+    try {
+      const response = await fetch('http://localhost:8000/api/generate/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt: prompt.trim() })
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to generate roadmap');
+      }
+      
+      if (!data.success) {
+        setError(data.error || 'Failed to generate roadmap');
+        return;
+      }
+      
+      const roadmapData = parseRoadmapToStructure(data.roadmap);
+      // Navigate to roadmap page with data
+      navigate('/roadmap', { 
+        state: { 
+          roadmapData,
+          prompt: prompt.trim()
+        }
+      });
+      
+    } catch (error) {
+      console.error('Error generating roadmap:', error);
+      setError(error.message || 'Failed to generate roadmap');
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  const popularRoadmaps = [
+    { 
+      icon: FaDatabase, 
+      title: "Data Science", 
+      description: "Learn data analysis, visualization, and machine learning" 
+    },
+    { 
+      icon: FaRobot, 
+      title: "Machine Learning", 
+      description: "Master AI algorithms and neural networks" 
+    },
+    { 
+      icon: FaShieldAlt, 
+      title: "Cyber Security", 
+      description: "Explore security principles and best practices" 
+    },
+    { 
+      icon: FaCubes, 
+      title: "Blockchain", 
+      description: "Understand blockchain technology and smart contracts" 
+    },
+    { 
+      icon: FaCloud, 
+      title: "Cloud Computing", 
+      description: "Learn cloud services and deployment strategies" 
+    },
+    { 
+      icon: FaMobile, 
+      title: "Mobile Development", 
+      description: "Build iOS and Android applications" 
+    },
+    { 
+      icon: FaGamepad, 
+      title: "Game Development", 
+      description: "Create engaging games and interactive experiences" 
+    },
+    { 
+      icon: FaCode, 
+      title: "Full Stack Development", 
+      description: "Master both frontend and backend development" 
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col pt-20">
-      <Header />
-      
       <main className="flex-grow p-6 md:p-10">
         {/* Popular Among Others Section */}
         <section className="mb-12">
@@ -184,7 +239,11 @@ function Dashboard() {
             {popularRoadmaps.map((roadmap, index) => (
               <button
                 key={index}
-                className="bg-gray-800 rounded-xl p-6 text-left transition-all duration-300 hover:bg-gray-700 hover:scale-105 hover:shadow-xl group relative overflow-hidden"
+                onClick={() => handleCategoryClick(roadmap.title)}
+                disabled={isLoading}
+                className={`bg-gray-800 rounded-xl p-6 text-left transition-all duration-300 
+                  ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-700 hover:scale-105 hover:shadow-xl'}
+                  group relative overflow-hidden`}
               >
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -199,6 +258,13 @@ function Dashboard() {
                 <p className="text-gray-400 text-sm leading-relaxed">
                   {roadmap.description}
                 </p>
+
+                {/* Loading Indicator */}
+                {isLoading && (
+                  <div className="absolute inset-0 bg-gray-800/50 flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-500"></div>
+                  </div>
+                )}
               </button>
             ))}
           </div>
@@ -220,7 +286,7 @@ function Dashboard() {
 For example:
   • Data Science
   • UI/UX Designer
-  • Full Stack Developement"
+  • Full Stack Development"
                     className="w-full bg-gray-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 pr-12 min-h-[140px] resize-none focus:outline-none focus:ring-2 focus:ring-purple-500/50"
                   />
                   <FaSearch className="absolute right-4 top-4 text-gray-400" />
@@ -270,8 +336,6 @@ For example:
           </div>
         )}
       </main>
-      
-      <Footer />
     </div>
   );
 }

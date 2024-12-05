@@ -1,18 +1,29 @@
-# Your Project Name
+# BrightPath AI - Learning Roadmap Platform
 
-A full-stack web application built with React + Vite frontend and Python backend.
+An intelligent learning roadmap platform that helps users create and visualize personalized learning paths for various tech domains.
 
 ## Features
 
 - React + Vite for fast and efficient frontend development
 - Python backend
 - Tailwind CSS for styling
-- ESLint for code quality
+- React Router for navigation
+- Clerk for authentication
+- React Icons
+- React Markdown with GFM support
+
+### Backend
+- Django 4.2.9
+- Django REST Framework
+- Django CORS Headers
+- Google Generative AI
+- PyTorch
+- Transformers
 
 ## Prerequisites
 
-- Node.js (v14 or higher)
-- Python (v3.6 or higher)
+- Node.js (v18 or higher)
+- Python (v3.9 or higher)
 - npm or yarn
 
 ## Installation
@@ -30,9 +41,16 @@ npm install
 
 3. Set up Python virtual environment and install backend dependencies:
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
-pip install -r requirements.txt
+pip3 install -r requirements.txt
+```
+
+4. Set up environment variables:
+Create a `.env` file in the root directory and add:
+```env
+VITE_CLERK_PUBLISHABLE_KEY=your_clerk_key
+GOOGLE_API_KEY=your_google_ai_api_key
 ```
 
 ## Development
@@ -42,21 +60,44 @@ pip install -r requirements.txt
 npm run dev
 ```
 
-2. Start the backend server:
+2. Start the Django backend server:
 ```bash
-# Navigate to backend directory and run your backend server
-# Add specific instructions based on your backend setup
+# From the backend directory
+python3 manage.py runserver
 ```
 
 ## Project Structure
 
 ```
-├── backend/          # Python backend code
-├── src/             # React frontend source code
-├── public/          # Static assets
-├── model/           # Model related files
-└── roadmap/         # Project roadmap
+├── src/                 # React frontend source
+│   ├── components/      # React components
+│   ├── pages/          # Page components
+│   └── App.jsx         # Main app component
+├── backend/            # Django backend
+│   ├── roadmap/        # Roadmap app
+│   └── backend/        # Django project settings
+├── dataset.json        # Predefined roadmap data
+├── public/             # Static assets
+└── model/             # AI model related files
 ```
+
+## Features in Detail
+
+### 1. Popular Roadmaps
+- Access to 8 predefined learning paths
+- Structured content with main topics and subtopics
+- Interactive visualization with expandable nodes
+
+### 2. Custom Roadmap Generation
+- AI-powered roadmap creation for any learning field
+- Natural language processing for understanding user input
+- Structured output matching predefined roadmap format
+
+### 3. Roadmap Visualization
+- Interactive node-based visualization
+- Expandable/collapsible topics
+- Smooth animations and transitions
+- Pan and zoom capabilities
 
 ## Contributing
 

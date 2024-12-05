@@ -1,0 +1,2023 @@
+[
+  {
+    "topic": "data science",
+    "roadmap": {
+      "name": "data science",
+      "children": [
+        {
+          "name": "1. Foundation",
+          "children": [
+            {
+              "name": "1.1 Mathematics & Statistics",
+              "children": [
+                {
+                  "name": "1.1.1 Linear Algebra"
+                },
+                {
+                  "name": "1.1.2 Probability & Statistics"
+                },
+                {
+                  "name": "1.1.3 Calculus (basic derivatives and integrals)"
+                }
+              ]
+            },
+            {
+              "name": "1.2 Programming",
+              "children": [
+                {
+                  "name": "1.2.1 Python Fundamentals (data types, control flow, functions)"
+                },
+                {
+                  "name": "1.2.2 Python Libraries (NumPy, Pandas)"
+                },
+                {
+                  "name": "1.2.3 Project: Data cleaning and manipulation with Pandas"
+                }
+              ]
+            },
+            {
+              "name": "1.3 Data Wrangling & Exploration",
+              "children": [
+                {
+                  "name": "1.3.1 Data Cleaning (handling missing values, outliers)"
+                },
+                {
+                  "name": "1.3.2 Data Transformation (scaling, encoding)"
+                },
+                {
+                  "name": "1.3.3 Exploratory Data Analysis (EDA) techniques & visualization with Matplotlib/Seaborn"
+                },
+                {
+                  "name": "1.3.4 Project: Perform EDA on a public dataset (e.g., Titanic dataset)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "2. Machine Learning",
+          "children": [
+            {
+              "name": "2.1 Supervised Learning",
+              "children": [
+                {
+                  "name": "2.1.1 Regression (Linear, Logistic)"
+                },
+                {
+                  "name": "2.1.2 Classification (Decision Trees, SVM, Naive Bayes)"
+                },
+                {
+                  "name": "2.1.3 Model Evaluation Metrics (Accuracy, Precision, Recall, F1-score)"
+                }
+              ]
+            },
+            {
+              "name": "2.2 Unsupervised Learning",
+              "children": [
+                {
+                  "name": "2.2.1 Clustering (K-means, Hierarchical)"
+                },
+                {
+                  "name": "2.2.2 Dimensionality Reduction (PCA)"
+                },
+                {
+                  "name": "2.2.3 Project: Build a clustering model to segment customers"
+                }
+              ]
+            },
+            {
+              "name": "2.3 Model Selection & Tuning",
+              "children": [
+                {
+                  "name": "2.3.1 Cross-validation"
+                },
+                {
+                  "name": "2.3.2 Hyperparameter Tuning (Grid Search, Randomized Search)"
+                },
+                {
+                  "name": "2.3.3 Project: Tune hyperparameters of a model to improve its performance"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "3. Deep Learning",
+          "children": [
+            {
+              "name": "3.1 Neural Networks",
+              "children": [
+                {
+                  "name": "3.1.1 Perceptrons"
+                },
+                {
+                  "name": "3.1.2 Multilayer Perceptrons (MLPs)"
+                },
+                {
+                  "name": "3.1.3 Backpropagation"
+                }
+              ]
+            },
+            {
+              "name": "3.2 Convolutional Neural Networks (CNNs)",
+              "children": [
+                {
+                  "name": "3.2.1 CNN Architectures"
+                },
+                {
+                  "name": "3.2.2 Image Classification"
+                },
+                {
+                  "name": "3.2.3 Project: Build a CNN for image classification (e.g., MNIST dataset)"
+                }
+              ]
+            },
+            {
+              "name": "3.3 Recurrent Neural Networks (RNNs)",
+              "children": [
+                {
+                  "name": "3.3.1 RNN Architectures (LSTMs, GRUs)"
+                },
+                {
+                  "name": "3.3.2 Time Series Analysis"
+                },
+                {
+                  "name": "3.3.3 Project: Build an RNN for time series forecasting"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "4. Big Data Technologies",
+          "children": [
+            {
+              "name": "4.1 Databases",
+              "children": [
+                {
+                  "name": "4.1.1 SQL"
+                },
+                {
+                  "name": "4.1.2 NoSQL databases (MongoDB, Cassandra)"
+                }
+              ]
+            },
+            {
+              "name": "4.2 Cloud Computing",
+              "children": [
+                {
+                  "name": "4.2.1 AWS, Azure, GCP"
+                },
+                {
+                  "name": "4.2.2 Cloud storage services"
+                }
+              ]
+            },
+            {
+              "name": "4.3 Big Data Processing Frameworks",
+              "children": [
+                {
+                  "name": "4.3.1 Spark"
+                },
+                {
+                  "name": "4.3.2 Hadoop"
+                },
+                {
+                  "name": "4.3.3 Project: Process a large dataset using Spark"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "5. Deployment & Communication",
+          "children": [
+            {
+              "name": "5.1 Model Deployment",
+              "children": [
+                {
+                  "name": "5.1.1 REST APIs"
+                },
+                {
+                  "name": "5.1.2 Cloud platforms for model deployment"
+                }
+              ]
+            },
+            {
+              "name": "5.2 Data Visualization & Storytelling",
+              "children": [
+                {
+                  "name": "5.2.1 Dashboarding tools (Tableau, Power BI)"
+                },
+                {
+                  "name": "5.2.2 Effective communication of insights"
+                }
+              ]
+            },
+            {
+              "name": "5.3 Version Control (Git)",
+              "children": [
+                {
+                  "name": "5.3.1 Git basics"
+                },
+                {
+                  "name": "5.3.2 Collaborative coding with Git"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "topic": "machine learning",
+    "roadmap": {
+      "name": "machine learning",
+      "children": [
+        {
+          "name": "1. Foundation",
+          "children": [
+            {
+              "name": "1.1 Mathematics",
+              "children": [
+                {
+                  "name": "1.1.1 Linear Algebra (Vectors, Matrices, Operations)"
+                },
+                {
+                  "name": "1.1.2 Calculus (Derivatives, Gradients)"
+                },
+                {
+                  "name": "1.1.3 Probability and Statistics (Distributions, Hypothesis Testing)"
+                }
+              ]
+            },
+            {
+              "name": "1.2 Programming",
+              "children": [
+                {
+                  "name": "1.2.1 Python Basics (Data Structures, Control Flow)"
+                },
+                {
+                  "name": "1.2.2 NumPy (Arrays, Linear Algebra Operations)"
+                },
+                {
+                  "name": "1.2.3 Pandas (Data Manipulation, DataFrames)"
+                },
+                {
+                  "name": "1.2.4 Project: Data Cleaning and Preprocessing"
+                }
+              ]
+            },
+            {
+              "name": "1.3 Machine Learning Fundamentals",
+              "children": [
+                {
+                  "name": "1.3.1 Supervised vs. Unsupervised Learning"
+                },
+                {
+                  "name": "1.3.2 Model Evaluation Metrics (Accuracy, Precision, Recall)"
+                },
+                {
+                  "name": "1.3.3 Bias-Variance Tradeoff"
+                },
+                {
+                  "name": "1.3.4 Project: Implement a Simple Linear Regression Model"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "2. Supervised Learning",
+          "children": [
+            {
+              "name": "2.1 Regression",
+              "children": [
+                {
+                  "name": "2.1.1 Linear Regression"
+                },
+                {
+                  "name": "2.1.2 Polynomial Regression"
+                },
+                {
+                  "name": "2.1.3 Regularization (Ridge, Lasso)"
+                },
+                {
+                  "name": "2.1.4 Project: House Price Prediction using Linear Regression"
+                }
+              ]
+            },
+            {
+              "name": "2.2 Classification",
+              "children": [
+                {
+                  "name": "2.2.1 Logistic Regression"
+                },
+                {
+                  "name": "2.2.2 Support Vector Machines (SVM)"
+                },
+                {
+                  "name": "2.2.3 Decision Trees"
+                },
+                {
+                  "name": "2.2.4 Project: Image Classification using SVM"
+                }
+              ]
+            },
+            {
+              "name": "2.3 Ensemble Methods",
+              "children": [
+                {
+                  "name": "2.3.1 Bagging (Random Forest)"
+                },
+                {
+                  "name": "2.3.2 Boosting (AdaBoost, Gradient Boosting)"
+                },
+                {
+                  "name": "2.3.3 Stacking"
+                },
+                {
+                  "name": "2.3.4 Project: Customer Churn Prediction using Random Forest"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "3. Unsupervised Learning",
+          "children": [
+            {
+              "name": "3.1 Clustering",
+              "children": [
+                {
+                  "name": "3.1.1 K-Means Clustering"
+                },
+                {
+                  "name": "3.1.2 Hierarchical Clustering"
+                },
+                {
+                  "name": "3.1.3 DBSCAN"
+                },
+                {
+                  "name": "3.1.4 Project: Customer Segmentation using K-Means"
+                }
+              ]
+            },
+            {
+              "name": "3.2 Dimensionality Reduction",
+              "children": [
+                {
+                  "name": "3.2.1 Principal Component Analysis (PCA)"
+                },
+                {
+                  "name": "3.2.2 t-distributed Stochastic Neighbor Embedding (t-SNE)"
+                },
+                {
+                  "name": "3.2.3 Project: Feature Extraction using PCA"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "4. Deep Learning",
+          "children": [
+            {
+              "name": "4.1 Neural Networks",
+              "children": [
+                {
+                  "name": "4.1.1 Perceptron"
+                },
+                {
+                  "name": "4.1.2 Multilayer Perceptron (MLP)"
+                },
+                {
+                  "name": "4.1.3 Backpropagation"
+                },
+                {
+                  "name": "4.1.4 Project: Handwritten Digit Recognition using MLP"
+                }
+              ]
+            },
+            {
+              "name": "4.2 Convolutional Neural Networks (CNNs)",
+              "children": [
+                {
+                  "name": "4.2.1 CNN Architectures"
+                },
+                {
+                  "name": "4.2.2 Applications in Image Processing"
+                },
+                {
+                  "name": "4.2.3 Project: Image Classification using CNNs"
+                }
+              ]
+            },
+            {
+              "name": "4.3 Recurrent Neural Networks (RNNs)",
+              "children": [
+                {
+                  "name": "4.3.1 LSTMs and GRUs"
+                },
+                {
+                  "name": "4.3.2 Applications in Time Series Analysis and NLP"
+                },
+                {
+                  "name": "4.3.3 Project: Text Sentiment Analysis using RNNs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "5. Deployment and Advanced Topics",
+          "children": [
+            {
+              "name": "5.1 Model Deployment",
+              "children": [
+                {
+                  "name": "5.1.1 Cloud Platforms (AWS, Google Cloud, Azure)"
+                },
+                {
+                  "name": "5.1.2 Containerization (Docker)"
+                },
+                {
+                  "name": "5.1.3 Model Serving"
+                },
+                {
+                  "name": "5.1.4 Project: Deploy a Machine Learning Model to a Cloud Platform"
+                }
+              ]
+            },
+            {
+              "name": "5.2 Advanced Topics",
+              "children": [
+                {
+                  "name": "5.2.1 Transfer Learning"
+                },
+                {
+                  "name": "5.2.2 Reinforcement Learning"
+                },
+                {
+                  "name": "5.2.3 Generative Adversarial Networks (GANs)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "topic": "cyber security",
+    "roadmap": {
+      "name": "cyber security",
+      "children": [
+        {
+          "name": "1. Foundation",
+          "children": [
+            {
+              "name": "1.1 Networking Fundamentals",
+              "children": [
+                {
+                  "name": "1.1.1 TCP/IP Model"
+                },
+                {
+                  "name": "1.1.2 Subnetting and IP Addressing"
+                },
+                {
+                  "name": "1.1.3 Network Topologies"
+                }
+              ]
+            },
+            {
+              "name": "1.2 Operating Systems Security",
+              "children": [
+                {
+                  "name": "1.2.1 User and Permissions Management (Linux/Windows)"
+                },
+                {
+                  "name": "1.2.2 Hardening and Security Best Practices"
+                },
+                {
+                  "name": "1.2.3  Basic Command-Line Usage (Linux/Windows)"
+                }
+              ]
+            },
+            {
+              "name": "1.3 Cryptography Basics",
+              "children": [
+                {
+                  "name": "1.3.1 Symmetric and Asymmetric Encryption"
+                },
+                {
+                  "name": "1.3.2 Hashing Algorithms"
+                },
+                {
+                  "name": "1.3.3 Digital Signatures and Certificates"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "2. Core Security Concepts",
+          "children": [
+            {
+              "name": "2.1 Risk Management and Assessment",
+              "children": [
+                {
+                  "name": "2.1.1 Identifying Assets and Vulnerabilities"
+                },
+                {
+                  "name": "2.1.2 Threat Modeling"
+                },
+                {
+                  "name": "2.1.3 Risk Mitigation Strategies (Project:  Conduct a risk assessment for a hypothetical system)"
+                }
+              ]
+            },
+            {
+              "name": "2.2 Security Policies and Compliance",
+              "children": [
+                {
+                  "name": "2.2.1 Understanding Common Security Frameworks (NIST, ISO 27001)"
+                },
+                {
+                  "name": "2.2.2 Developing Security Policies"
+                },
+                {
+                  "name": "2.2.3 Compliance Requirements and Audits"
+                }
+              ]
+            },
+            {
+              "name": "2.3 Incident Response",
+              "children": [
+                {
+                  "name": "2.3.1 Incident Response Lifecycle"
+                },
+                {
+                  "name": "2.3.2 Evidence Collection and Forensics"
+                },
+                {
+                  "name": "2.3.3  Incident Reporting and Remediation (Project: Simulate an incident response scenario)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "3. Ethical Hacking and Penetration Testing",
+          "children": [
+            {
+              "name": "3.1 Reconnaissance and Information Gathering",
+              "children": [
+                {
+                  "name": "3.1.1 Footprinting Techniques"
+                },
+                {
+                  "name": "3.1.2 Vulnerability Scanning"
+                },
+                {
+                  "name": "3.1.3 Social Engineering Techniques"
+                }
+              ]
+            },
+            {
+              "name": "3.2 Vulnerability Analysis and Exploitation",
+              "children": [
+                {
+                  "name": "3.2.1 Common Web Application Vulnerabilities (OWASP Top 10)"
+                },
+                {
+                  "name": "3.2.2 Network Penetration Testing"
+                },
+                {
+                  "name": "3.2.3 Exploiting Vulnerabilities (using tools like Metasploit - with ethical considerations)"
+                }
+              ]
+            },
+            {
+              "name": "3.3 Reporting and Remediation",
+              "children": [
+                {
+                  "name": "3.3.1 Writing Penetration Testing Reports"
+                },
+                {
+                  "name": "3.3.2 Presenting Findings to Stakeholders"
+                },
+                {
+                  "name": "3.3.3  Vulnerability Remediation Strategies (Project:  Penetration test a vulnerable web application)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "4. Specialized Areas",
+          "children": [
+            {
+              "name": "4.1 Cloud Security",
+              "children": [
+                {
+                  "name": "4.1.1 Security in AWS, Azure, or GCP"
+                },
+                {
+                  "name": "4.1.2 Cloud Security Architectures"
+                },
+                {
+                  "name": "4.1.3  Cloud Security Best Practices"
+                }
+              ]
+            },
+            {
+              "name": "4.2  Security Engineering",
+              "children": [
+                {
+                  "name": "4.2.1 Secure Software Development Lifecycle (SDLC)"
+                },
+                {
+                  "name": "4.2.2  Secure Coding Practices"
+                },
+                {
+                  "name": "4.2.3  Application Security Testing"
+                }
+              ]
+            },
+            {
+              "name": "4.3 Data Security and Privacy",
+              "children": [
+                {
+                  "name": "4.3.1 Data Loss Prevention (DLP)"
+                },
+                {
+                  "name": "4.3.2 Data Encryption and Key Management"
+                },
+                {
+                  "name": "4.3.3 Compliance with Regulations (GDPR, CCPA)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "5. Advanced Topics",
+          "children": [
+            {
+              "name": "5.1 Digital Forensics",
+              "children": [
+                {
+                  "name": "5.1.1  Disk Imaging and Analysis"
+                },
+                {
+                  "name": "5.1.2  Network Forensics"
+                },
+                {
+                  "name": "5.1.3  Memory Forensics"
+                }
+              ]
+            },
+            {
+              "name": "5.2 Malware Analysis",
+              "children": [
+                {
+                  "name": "5.2.1 Static and Dynamic Malware Analysis"
+                },
+                {
+                  "name": "5.2.2 Reverse Engineering"
+                },
+                {
+                  "name": "5.2.3  Malware Detection and Prevention"
+                }
+              ]
+            },
+            {
+              "name": "5.3 Security Architecture and Design",
+              "children": [
+                {
+                  "name": "5.3.1  Zero Trust Architecture"
+                },
+                {
+                  "name": "5.3.2  Microservices Security"
+                },
+                {
+                  "name": "5.3.3  Security Automation and Orchestration"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "topic": "blockchain",
+    "roadmap": {
+      "name": "blockchain",
+      "children": [
+        {
+          "name": "1. Foundation",
+          "children": [
+            {
+              "name": "1.1 Core Concepts",
+              "children": [
+                {
+                  "name": "1.1.1 Decentralization"
+                },
+                {
+                  "name": "1.1.2 Distributed Ledger Technology (DLT)"
+                },
+                {
+                  "name": "1.1.3 Cryptography (Hashing, Digital Signatures)"
+                }
+              ]
+            },
+            {
+              "name": "1.2 Blockchain Architecture",
+              "children": [
+                {
+                  "name": "1.2.1 Blocks and Chains"
+                },
+                {
+                  "name": "1.2.2 Consensus Mechanisms (Proof-of-Work, Proof-of-Stake)"
+                },
+                {
+                  "name": "1.2.3 Transaction Processing"
+                }
+              ]
+            },
+            {
+              "name": "1.3 Bitcoin Fundamentals",
+              "children": [
+                {
+                  "name": "1.3.1 Bitcoin Whitepaper Overview"
+                },
+                {
+                  "name": "1.3.2 Bitcoin Mining and Rewards"
+                },
+                {
+                  "name": "1.3.3 Bitcoin Wallets and Addresses"
+                },
+                {
+                  "name": "1.3.4 Practical Exercise: Setting up a Bitcoin Wallet and sending a small transaction (testnet)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "2. Smart Contracts and Ethereum",
+          "children": [
+            {
+              "name": "2.1 Introduction to Ethereum",
+              "children": [
+                {
+                  "name": "2.1.1 Ethereum Virtual Machine (EVM)"
+                },
+                {
+                  "name": "2.1.2 Gas and Transaction Fees"
+                },
+                {
+                  "name": "2.1.3 Accounts (Externally Owned Accounts, Contract Accounts)"
+                }
+              ]
+            },
+            {
+              "name": "2.2 Solidity Programming",
+              "children": [
+                {
+                  "name": "2.2.1 Basic Solidity Syntax"
+                },
+                {
+                  "name": "2.2.2 Data Types and Variables"
+                },
+                {
+                  "name": "2.2.3 Functions and Modifiers"
+                }
+              ]
+            },
+            {
+              "name": "2.3 Smart Contract Development",
+              "children": [
+                {
+                  "name": "2.3.1 Deploying Smart Contracts (Remix IDE, Truffle)"
+                },
+                {
+                  "name": "2.3.2 Interacting with Smart Contracts"
+                },
+                {
+                  "name": "2.3.3 Project: Build a simple ERC-20 token"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "3.  Advanced Blockchain Concepts",
+          "children": [
+            {
+              "name": "3.1  Scalability Solutions",
+              "children": [
+                {
+                  "name": "3.1.1 Layer-2 Scaling (State Channels, Plasma, Rollups)"
+                },
+                {
+                  "name": "3.1.2 Sharding"
+                },
+                {
+                  "name": "3.1.3 Consensus Algorithm Comparisons"
+                }
+              ]
+            },
+            {
+              "name": "3.2  Security and Privacy",
+              "children": [
+                {
+                  "name": "3.2.1 Common Vulnerabilities in Smart Contracts"
+                },
+                {
+                  "name": "3.2.2  Zero-Knowledge Proofs"
+                },
+                {
+                  "name": "3.2.3  Blockchain Security Audits"
+                }
+              ]
+            },
+            {
+              "name": "3.3  Decentralized Applications (dApps)",
+              "children": [
+                {
+                  "name": "3.3.1  Frontend Development for dApps"
+                },
+                {
+                  "name": "3.3.2  Backend Integration with Blockchains"
+                },
+                {
+                  "name": "3.3.3  Project: Build a simple decentralized application"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "4.  Specific Blockchain Platforms",
+          "children": [
+            {
+              "name": "4.1  Hyperledger Fabric",
+              "children": [
+                {
+                  "name": "4.1.1  Architecture and Components"
+                },
+                {
+                  "name": "4.1.2  Chaincode Development"
+                },
+                {
+                  "name": "4.1.3  Use Cases in Enterprise"
+                }
+              ]
+            },
+            {
+              "name": "4.2  Corda",
+              "children": [
+                {
+                  "name": "4.2.1  Focus on Privacy and Confidentiality"
+                },
+                {
+                  "name": "4.2.2  Workflows and States"
+                },
+                {
+                  "name": "4.2.3  Use Cases in Finance"
+                }
+              ]
+            },
+            {
+              "name": "4.3  Other Notable Platforms (EOS, Polkadot, Cosmos)",
+              "children": [
+                {
+                  "name": "4.3.1  Comparative Analysis"
+                },
+                {
+                  "name": "4.3.2  Key Features and Differences"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "5.  Future Trends and Applications",
+          "children": [
+            {
+              "name": "5.1  The Metaverse and Blockchain",
+              "children": [
+                {
+                  "name": "5.1.1  Digital Asset Ownership and Management"
+                },
+                {
+                  "name": "5.1.2  Decentralized Identity in the Metaverse"
+                }
+              ]
+            },
+            {
+              "name": "5.2  Blockchain in Supply Chain Management",
+              "children": [
+                {
+                  "name": "5.2.1  Track and Trace Solutions"
+                },
+                {
+                  "name": "5.2.2  Improving Transparency and Efficiency"
+                }
+              ]
+            },
+            {
+              "name": "5.3  Decentralized Finance (DeFi)",
+              "children": [
+                {
+                  "name": "5.3.1  Lending and Borrowing Protocols"
+                },
+                {
+                  "name": "5.3.2  Decentralized Exchanges (DEXs)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "topic": "cloud computing",
+    "roadmap": {
+      "name": "Cloud Computing",
+      "children": [
+        {
+          "name": "1. Foundation",
+          "children": [
+            {
+              "name": "1.1 Core Concepts",
+              "children": [
+                {
+                  "name": "1.1.1 Cloud Computing Models (IaaS, PaaS, SaaS)"
+                },
+                {
+                  "name": "1.1.2 Cloud Deployment Models (Public, Private, Hybrid, Multi-cloud)"
+                },
+                {
+                  "name": "1.1.3 Cloud Service Providers (AWS, Azure, GCP, etc.) - Comparison & Overview"
+                }
+              ]
+            },
+            {
+              "name": "1.2 Networking Fundamentals",
+              "children": [
+                {
+                  "name": "1.2.1 Virtual Networks and Subnets"
+                },
+                {
+                  "name": "1.2.2 IP Addressing and Routing"
+                },
+                {
+                  "name": "1.2.3 Load Balancing and DNS"
+                }
+              ]
+            },
+            {
+              "name": "1.3 Security Fundamentals",
+              "children": [
+                {
+                  "name": "1.3.1 Identity and Access Management (IAM)"
+                },
+                {
+                  "name": "1.3.2 Security Groups and Network ACLs"
+                },
+                {
+                  "name": "1.3.3 Data Encryption and Key Management"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "2. Compute Services",
+          "children": [
+            {
+              "name": "2.1 Virtual Machines (VMs)",
+              "children": [
+                {
+                  "name": "2.1.1 VM creation and management"
+                },
+                {
+                  "name": "2.1.2 VM scaling and optimization"
+                },
+                {
+                  "name": "2.1.3 Project: Deploy a simple web application on a VM"
+                }
+              ]
+            },
+            {
+              "name": "2.2 Containerization (Docker, Kubernetes)",
+              "children": [
+                {
+                  "name": "2.2.1 Docker basics: Images, containers, and registries"
+                },
+                {
+                  "name": "2.2.2 Kubernetes fundamentals: Deployments, services, and pods"
+                },
+                {
+                  "name": "2.2.3 Project: Deploy a multi-container application using Kubernetes"
+                }
+              ]
+            },
+            {
+              "name": "2.3 Serverless Computing",
+              "children": [
+                {
+                  "name": "2.3.1 Introduction to serverless functions (Lambda, Azure Functions, Cloud Functions)"
+                },
+                {
+                  "name": "2.3.2 Event-driven architectures"
+                },
+                {
+                  "name": "2.3.3 Project: Build a serverless application triggered by an event"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "3. Storage Services",
+          "children": [
+            {
+              "name": "3.1 Object Storage (S3, Blob Storage)",
+              "children": [
+                {
+                  "name": "3.1.1 Understanding object storage principles"
+                },
+                {
+                  "name": "3.1.2 Managing buckets and objects"
+                },
+                {
+                  "name": "3.1.3 Project: Store and retrieve files using object storage"
+                }
+              ]
+            },
+            {
+              "name": "3.2 Block Storage (EBS, Disk Storage)",
+              "children": [
+                {
+                  "name": "3.2.1 Types of block storage and their use cases"
+                },
+                {
+                  "name": "3.2.2 Performance considerations"
+                },
+                {
+                  "name": "3.2.3 Project: Attach block storage to a VM"
+                }
+              ]
+            },
+            {
+              "name": "3.3 Database Services",
+              "children": [
+                {
+                  "name": "3.3.1 Relational databases (RDS, SQL Database)"
+                },
+                {
+                  "name": "3.3.2 NoSQL databases (DynamoDB, Cosmos DB)"
+                },
+                {
+                  "name": "3.3.3 Project: Set up and manage a database instance"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "4. Data Management & Analytics",
+          "children": [
+            {
+              "name": "4.1 Data Warehousing and Data Lakes",
+              "children": [
+                {
+                  "name": "4.1.1 Concepts of data warehousing and data lakes"
+                },
+                {
+                  "name": "4.1.2 Data loading and transformation"
+                },
+                {
+                  "name": "4.1.3 Project:  Ingest and analyze data using a cloud data warehouse"
+                }
+              ]
+            },
+            {
+              "name": "4.2 Big Data Technologies",
+              "children": [
+                {
+                  "name": "4.2.1 Introduction to Hadoop and Spark"
+                },
+                {
+                  "name": "4.2.2 Data processing frameworks"
+                },
+                {
+                  "name": "4.2.3 Project: Process a large dataset using a big data framework"
+                }
+              ]
+            },
+            {
+              "name": "4.3 Data Analytics Services",
+              "children": [
+                {
+                  "name": "4.3.1 Cloud-based analytics platforms"
+                },
+                {
+                  "name": "4.3.2 Machine learning services"
+                },
+                {
+                  "name": "4.3.3 Project: Build a simple machine learning model using a cloud platform"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "5. Deployment and Monitoring",
+          "children": [
+            {
+              "name": "5.1 CI/CD Pipelines",
+              "children": [
+                {
+                  "name": "5.1.1 Continuous Integration and Continuous Delivery"
+                },
+                {
+                  "name": "5.1.2 Automation tools (Jenkins, GitLab CI, etc.)"
+                },
+                {
+                  "name": "5.1.3 Project: Set up a CI/CD pipeline for a simple application"
+                }
+              ]
+            },
+            {
+              "name": "5.2 Monitoring and Logging",
+              "children": [
+                {
+                  "name": "5.2.1 CloudWatch, Azure Monitor, Cloud Logging"
+                },
+                {
+                  "name": "5.2.2 Metrics and alerts"
+                },
+                {
+                  "name": "5.2.3 Project: Monitor the performance of a deployed application"
+                }
+              ]
+            },
+            {
+              "name": "5.3 Cost Optimization",
+              "children": [
+                {
+                  "name": "5.3.1 Understanding cloud pricing models"
+                },
+                {
+                  "name": "5.3.2 Strategies for cost reduction"
+                },
+                {
+                  "name": "5.3.3 Project: Analyze and optimize the cost of a cloud deployment"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "topic": "mobile development",
+    "roadmap": {
+      "name": "mobile development",
+      "children": [
+        {
+          "name": "1. Foundation",
+          "children": [
+            {
+              "name": "1.1 Programming Fundamentals",
+              "children": [
+                {
+                  "name": "1.1.1 Variables, Data Types, Operators"
+                },
+                {
+                  "name": "1.1.2 Control Flow (if/else, loops)"
+                },
+                {
+                  "name": "1.1.3 Functions and Procedures",
+                  "children": [
+                    {
+                      "name": "1.1.3.1 Practice: Build a simple calculator app (console-based)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "1.2 Object-Oriented Programming (OOP)",
+              "children": [
+                {
+                  "name": "1.2.1 Classes and Objects"
+                },
+                {
+                  "name": "1.2.2 Inheritance and Polymorphism"
+                },
+                {
+                  "name": "1.2.3 Encapsulation and Abstraction",
+                  "children": [
+                    {
+                      "name": "1.2.3.1 Practice: Create a simple OOP-based game (console-based)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "1.3 Version Control (Git)",
+              "children": [
+                {
+                  "name": "1.3.1 Git Basics (init, add, commit, push, pull)"
+                },
+                {
+                  "name": "1.3.2 Branching and Merging"
+                },
+                {
+                  "name": "1.3.3 Collaboration using GitHub/GitLab",
+                  "children": [
+                    {
+                      "name": "1.3.3.1 Practice: Create a GitHub repository and collaborate on a simple project"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "2. Android Development (Java/Kotlin)",
+          "children": [
+            {
+              "name": "2.1 Android Studio Setup and Basics",
+              "children": [
+                {
+                  "name": "2.1.1 Installing Android Studio"
+                },
+                {
+                  "name": "2.1.2 Creating your first Android project"
+                },
+                {
+                  "name": "2.1.3 Understanding Android project structure"
+                }
+              ]
+            },
+            {
+              "name": "2.2 UI Development (XML & Kotlin)",
+              "children": [
+                {
+                  "name": "2.2.1 Layouts (Linear, Relative, Constraint)"
+                },
+                {
+                  "name": "2.2.2 Views and Widgets"
+                },
+                {
+                  "name": "2.2.3 UI design principles",
+                  "children": [
+                    {
+                      "name": "2.2.3.1 Practice: Create a simple UI with multiple views and widgets"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "2.3 Android Fundamentals",
+              "children": [
+                {
+                  "name": "2.3.1 Activities and Intents"
+                },
+                {
+                  "name": "2.3.2 Fragments"
+                },
+                {
+                  "name": "2.3.3 Data persistence (Shared Preferences, SQLite)",
+                  "children": [
+                    {
+                      "name": "2.3.3.1 Practice: Build a simple to-do list app"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "3. iOS Development (Swift)",
+          "children": [
+            {
+              "name": "3.1 Xcode Setup and Basics",
+              "children": [
+                {
+                  "name": "3.1.1 Installing Xcode"
+                },
+                {
+                  "name": "3.1.2 Creating your first iOS project"
+                },
+                {
+                  "name": "3.1.3 Understanding iOS project structure"
+                }
+              ]
+            },
+            {
+              "name": "3.2 SwiftUI Fundamentals",
+              "children": [
+                {
+                  "name": "3.2.1 Views and Modifiers"
+                },
+                {
+                  "name": "3.2.2 Data Structures in SwiftUI"
+                },
+                {
+                  "name": "3.2.3 Navigation and State Management",
+                  "children": [
+                    {
+                      "name": "3.2.3.1 Practice: Create a simple interactive UI with SwiftUI"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "3.3 iOS Specific Features",
+              "children": [
+                {
+                  "name": "3.3.1 Working with UIKit elements (if needed)"
+                },
+                {
+                  "name": "3.3.2 Handling device features (camera, location)"
+                },
+                {
+                  "name": "3.3.3 App Store Deployment process",
+                  "children": [
+                    {
+                      "name": "3.3.3.1 Practice: Deploy a simple iOS app to a simulator"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "4. Cross-Platform Development",
+          "children": [
+            {
+              "name": "4.1 Flutter (Dart)",
+              "children": [
+                {
+                  "name": "4.1.1 Dart Programming Language"
+                },
+                {
+                  "name": "4.1.2 Flutter Widget Tree"
+                },
+                {
+                  "name": "4.1.3 State Management in Flutter",
+                  "children": [
+                    {
+                      "name": "4.1.3.1 Practice: Build a simple counter app with Flutter"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "4.2 React Native (JavaScript)",
+              "children": [
+                {
+                  "name": "4.2.1 JavaScript Fundamentals"
+                },
+                {
+                  "name": "4.2.2 React Concepts"
+                },
+                {
+                  "name": "4.2.3 React Native Components",
+                  "children": [
+                    {
+                      "name": "4.2.3.1 Practice: Build a simple list app with React Native"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "4.3 Xamarin (.NET)",
+              "children": [
+                {
+                  "name": "4.3.1 C# Programming Language"
+                },
+                {
+                  "name": "4.3.2 Xamarin Forms"
+                },
+                {
+                  "name": "4.3.3 Sharing code across platforms",
+                  "children": [
+                    {
+                      "name": "4.3.3.1 Practice: Build a simple app with Xamarin that targets both Android and iOS"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "5. Advanced Topics",
+          "children": [
+            {
+              "name": "5.1 Backend Integration (APIs)",
+              "children": [
+                {
+                  "name": "5.1.1 REST APIs"
+                },
+                {
+                  "name": "5.1.2 JSON Parsing"
+                },
+                {
+                  "name": "5.1.3 Networking in mobile apps",
+                  "children": [
+                    {
+                      "name": "5.1.3.1 Practice: Integrate a public API into an existing app"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "5.2 Advanced UI/UX",
+              "children": [
+                {
+                  "name": "5.2.1 Animations and Transitions"
+                },
+                {
+                  "name": "5.2.2 Custom Views and Components"
+                },
+                {
+                  "name": "5.2.3 UI/UX Design Principles",
+                  "children": [
+                    {
+                      "name": "5.2.3.1 Practice: Improve the UI/UX of a previous project"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "5.3 Testing and Deployment",
+              "children": [
+                {
+                  "name": "5.3.1 Unit Testing"
+                },
+                {
+                  "name": "5.3.2 Integration Testing"
+                },
+                {
+                  "name": "5.3.3 App Store/Google Play Deployment",
+                  "children": [
+                    {
+                      "name": "5.3.3.1 Practice: Deploy a more complex app to the app store/Google play"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "topic": "game development",
+    "roadmap": {
+      "name": "game development",
+      "children": [
+        {
+          "name": "1. Foundation",
+          "children": [
+            {
+              "name": "1.1 Core Programming Concepts",
+              "children": [
+                {
+                  "name": "1.1.1 Variables, Data Types, Operators"
+                },
+                {
+                  "name": "1.1.2 Control Flow (if/else, loops)"
+                },
+                {
+                  "name": "1.1.3 Functions and Procedures",
+                  "children": [
+                    {
+                      "name": "Exercise: Create a simple calculator function"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "1.2 Introduction to Game Math",
+              "children": [
+                {
+                  "name": "1.2.1 Basic Algebra and Trigonometry"
+                },
+                {
+                  "name": "1.2.2 Vectors and Matrices"
+                },
+                {
+                  "name": "1.2.3 Coordinate Systems (2D and 3D)",
+                  "children": [
+                    {
+                      "name": "Exercise: Calculate distance between two points"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "1.3 Game Design Fundamentals",
+              "children": [
+                {
+                  "name": "1.3.1 Game Mechanics and Systems"
+                },
+                {
+                  "name": "1.3.2 Level Design Principles"
+                },
+                {
+                  "name": "1.3.3 Game Balancing and Playtesting",
+                  "children": [
+                    {
+                      "name": "Project: Design a simple board game and playtest it"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "2. 2D Game Development",
+          "children": [
+            {
+              "name": "2.1 Choosing a Game Engine (Unity, Godot, etc.)",
+              "children": [
+                {
+                  "name": "2.1.1 Engine Comparison and Selection"
+                },
+                {
+                  "name": "2.1.2 Setting up the Development Environment"
+                },
+                {
+                  "name": "2.1.3 Basic Tutorials and Documentation"
+                }
+              ]
+            },
+            {
+              "name": "2.2 Sprites, Animation, and UI",
+              "children": [
+                {
+                  "name": "2.2.1 Importing and Using Sprites"
+                },
+                {
+                  "name": "2.2.2 Creating Simple Animations"
+                },
+                {
+                  "name": "2.2.3 Implementing User Interfaces (UI)"
+                }
+              ]
+            },
+            {
+              "name": "2.3 Game Mechanics Implementation (2D)",
+              "children": [
+                {
+                  "name": "2.3.1 Player Movement and Controls"
+                },
+                {
+                  "name": "2.3.2 Collision Detection and Response"
+                },
+                {
+                  "name": "2.3.3 Simple Physics (gravity, jump)"
+                }
+              ]
+            },
+            {
+              "name": "2.4  2D Project: Simple Platformer",
+              "children": [
+                {
+                  "name": "2.4.1 Implement basic platformer mechanics"
+                },
+                {
+                  "name": "2.4.2 Design and create level layouts"
+                },
+                {
+                  "name": "2.4.3 Add basic enemy AI"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "3. 3D Game Development",
+          "children": [
+            {
+              "name": "3.1 3D Modeling and Asset Creation",
+              "children": [
+                {
+                  "name": "3.1.1 Introduction to 3D Modeling Software (Blender, Maya, 3ds Max)"
+                },
+                {
+                  "name": "3.1.2 Importing 3D Models into Game Engine"
+                },
+                {
+                  "name": "3.1.3 Texturing and Material Creation"
+                }
+              ]
+            },
+            {
+              "name": "3.2 3D Game Mechanics Implementation",
+              "children": [
+                {
+                  "name": "3.2.1 3D Camera Controls"
+                },
+                {
+                  "name": "3.2.2 Advanced Physics (Rigidbodies, colliders)"
+                },
+                {
+                  "name": "3.2.3 Character Animation and Control"
+                }
+              ]
+            },
+            {
+              "name": "3.3 Lighting and Rendering",
+              "children": [
+                {
+                  "name": "3.3.1 Basic Lighting Techniques"
+                },
+                {
+                  "name": "3.3.2 Understanding Shaders (basics)"
+                },
+                {
+                  "name": "3.3.3 Optimizing Performance for 3D"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "4. Advanced Topics",
+          "children": [
+            {
+              "name": "4.1 Networking",
+              "children": [
+                {
+                  "name": "4.1.1 Client-Server Architecture"
+                },
+                {
+                  "name": "4.1.2 Networking Libraries and APIs"
+                },
+                {
+                  "name": "4.1.3 Implementing Multiplayer Functionality"
+                }
+              ]
+            },
+            {
+              "name": "4.2 Artificial Intelligence (AI)",
+              "children": [
+                {
+                  "name": "4.2.1 Finite State Machines"
+                },
+                {
+                  "name": "4.2.2 Pathfinding Algorithms (A*, Dijkstra's)"
+                },
+                {
+                  "name": "4.2.3 Behavior Trees"
+                }
+              ]
+            },
+            {
+              "name": "4.3 Game Optimization and Profiling",
+              "children": [
+                {
+                  "name": "4.3.1 Understanding Performance Bottlenecks"
+                },
+                {
+                  "name": "4.3.2 Profiling Tools and Techniques"
+                },
+                {
+                  "name": "4.3.3 Optimization Strategies"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "5. Game Publishing and Distribution",
+          "children": [
+            {
+              "name": "5.1 Game Submission Platforms",
+              "children": [
+                {
+                  "name": "5.1.1 Steam, Itch.io, etc."
+                },
+                {
+                  "name": "5.1.2 Platform-specific requirements"
+                }
+              ]
+            },
+            {
+              "name": "5.2 Marketing and Promotion",
+              "children": [
+                {
+                  "name": "5.2.1 Social Media Marketing"
+                },
+                {
+                  "name": "5.2.2 Community Building"
+                },
+                {
+                  "name": "5.2.3 Game Trailers and Screenshots"
+                }
+              ]
+            },
+            {
+              "name": "5.3 Legal Considerations",
+              "children": [
+                {
+                  "name": "5.3.1 Copyright and Intellectual Property"
+                },
+                {
+                  "name": "5.3.2 EULA and Terms of Service"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "topic": "full stack development",
+    "roadmap": {
+      "name": "full stack development",
+      "children": [
+        {
+          "name": "1. Foundation",
+          "children": [
+            {
+              "name": "1.1 Web Fundamentals",
+              "children": [
+                {
+                  "name": "1.1.1 HTML & CSS Basics"
+                },
+                {
+                  "name": "1.1.2 Introduction to JavaScript"
+                },
+                {
+                  "name": "1.1.3 Basic Web Design Principles",
+                  "children": [
+                    {
+                      "name": "1.1.3.1 Responsive Design"
+                    },
+                    {
+                      "name": "1.1.3.2 UI/UX Principles"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "1.2 Version Control",
+              "children": [
+                {
+                  "name": "1.2.1 Git Basics"
+                },
+                {
+                  "name": "1.2.2 GitHub/GitLab Workflow"
+                },
+                {
+                  "name": "1.2.3 Branching and Merging"
+                }
+              ]
+            },
+            {
+              "name": "1.3 Command Line Interface",
+              "children": [
+                {
+                  "name": "1.3.1 Basic Navigation"
+                },
+                {
+                  "name": "1.3.2 File Management"
+                },
+                {
+                  "name": "1.3.3 Package Management (npm, yarn)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "2. Front-End Development",
+          "children": [
+            {
+              "name": "2.1 Advanced JavaScript",
+              "children": [
+                {
+                  "name": "2.1.1 ES6+ Features"
+                },
+                {
+                  "name": "2.1.2 DOM Manipulation"
+                },
+                {
+                  "name": "2.1.3 Asynchronous JavaScript (Promises, Async/Await)"
+                },
+                {
+                  "name": "2.1.4 Project: Simple To-Do List App"
+                }
+              ]
+            },
+            {
+              "name": "2.2 Modern JavaScript Frameworks",
+              "children": [
+                {
+                  "name": "2.2.1 React (or Vue.js, Angular): Core Concepts"
+                },
+                {
+                  "name": "2.2.2 Component-Based Architecture"
+                },
+                {
+                  "name": "2.2.3 State Management (Context API, Redux/Vuex)"
+                },
+                {
+                  "name": "2.2.4 Project: Simple E-commerce Product Page"
+                }
+              ]
+            },
+            {
+              "name": "2.3 Testing and Debugging",
+              "children": [
+                {
+                  "name": "2.3.1 JavaScript Testing Frameworks (Jest, Mocha)"
+                },
+                {
+                  "name": "2.3.2 Browser Developer Tools"
+                },
+                {
+                  "name": "2.3.3 Debugging Techniques"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "3. Back-End Development",
+          "children": [
+            {
+              "name": "3.1 Server-Side Languages",
+              "children": [
+                {
+                  "name": "3.1.1 Node.js (with Express.js)"
+                },
+                {
+                  "name": "3.1.2 Python (with Django or Flask)"
+                },
+                {
+                  "name": "3.1.3 Database Interaction (SQL, NoSQL)"
+                }
+              ]
+            },
+            {
+              "name": "3.2 Databases",
+              "children": [
+                {
+                  "name": "3.2.1 Relational Databases (MySQL, PostgreSQL)"
+                },
+                {
+                  "name": "3.2.2 NoSQL Databases (MongoDB)"
+                },
+                {
+                  "name": "3.2.3 Database Design and Normalization"
+                }
+              ]
+            },
+            {
+              "name": "3.3 APIs and REST",
+              "children": [
+                {
+                  "name": "3.3.1 RESTful API Design Principles"
+                },
+                {
+                  "name": "3.3.2 API Documentation (Swagger/OpenAPI)"
+                },
+                {
+                  "name": "3.3.3 Project: Build a simple RESTful API"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "4. Deployment and DevOps",
+          "children": [
+            {
+              "name": "4.1 Deployment to Cloud Platforms",
+              "children": [
+                {
+                  "name": "4.1.1 AWS, Google Cloud, or Azure"
+                },
+                {
+                  "name": "4.1.2 Containerization (Docker)"
+                },
+                {
+                  "name": "4.1.3 Deployment Pipelines (CI/CD)"
+                }
+              ]
+            },
+            {
+              "name": "4.2 Server Management",
+              "children": [
+                {
+                  "name": "4.2.1 Linux Basics"
+                },
+                {
+                  "name": "4.2.2 Nginx/Apache Configuration"
+                },
+                {
+                  "name": "4.2.3 Security Best Practices"
+                }
+              ]
+            },
+            {
+              "name": "4.3 Monitoring and Logging",
+              "children": [
+                {
+                  "name": "4.3.1 Setting up monitoring tools"
+                },
+                {
+                  "name": "4.3.2 Log analysis"
+                },
+                {
+                  "name": "4.3.3 Performance optimization"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "5. Full Stack Project",
+          "children": [
+            {
+              "name": "5.1 Project Planning & Design",
+              "children": [
+                {
+                  "name": "5.1.1 Defining Scope and Requirements"
+                },
+                {
+                  "name": "5.1.2 Database schema design"
+                },
+                {
+                  "name": "5.1.3 API endpoint design"
+                }
+              ]
+            },
+            {
+              "name": "5.2 Implementation",
+              "children": [
+                {
+                  "name": "5.2.1 Front-end development"
+                },
+                {
+                  "name": "5.2.2 Back-end development"
+                },
+                {
+                  "name": "5.2.3 API integration"
+                }
+              ]
+            },
+            {
+              "name": "5.3 Testing & Deployment",
+              "children": [
+                {
+                  "name": "5.3.1 Unit & Integration testing"
+                },
+                {
+                  "name": "5.3.2 User acceptance testing"
+                },
+                {
+                  "name": "5.3.3 Deployment to a hosting platform"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

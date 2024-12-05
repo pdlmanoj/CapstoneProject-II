@@ -16,11 +16,11 @@ class BackupModelGenerator:
         # Define allowed tech fields
         self.tech_fields = {
     # Programming Languages
-    'programming', 'python', 'javascript', 'java', 'c++', 'c#', 'ruby', 'php', 'swift', 'kotlin', 'rust', 'go',
+    'programming', 'python', 'javascript', 'java', 'c++', 'c#', 'ruby', 'php', 'swift', 'kotlin', 'rust', 'go','mongoDB',
     
     # Web Development
     'web development', 'frontend', 'backend', 'fullstack', 'html', 'css', 'react', 'angular', 'vue', 'node.js',
-    'django', 'flask', 'spring boot', 'asp.net', 'web design', 'responsive design',
+    'django', 'flask', 'spring boot', 'asp.net', 'web design', 'responsive design','full stack development',
     
     # Data Related
     'data', 'data science', 'data engineering', 'data analyst', 'data analytics', 'business analyst', 'business intelligence',
@@ -29,7 +29,7 @@ class BackupModelGenerator:
     
     # AI/ML
     'machine learning', 'artificial intelligence', 'ai', 'deep learning', 'nlp', 'computer vision',
-    'neural networks', 'tensorflow', 'pytorch', 'scikit-learn', 'ml ops',
+    'neural networks', 'tensorflow', 'pytorch', 'scikit-learn', 'ml ops',''
     
     # Cloud & DevOps
     'devops', 'cloud computing', 'aws', 'azure', 'gcp', 'docker', 'kubernetes', 'jenkins', 'ci/cd',
@@ -53,33 +53,69 @@ class BackupModelGenerator:
     'technical lead', 'tech lead', 'engineering manager',
     'networking', 'network engineer', 'system administrator',
     'linux', 'unix', 'windows server', 'shell scripting',
-    'api', 'rest api', 'graphql', 'microservices', 'distributed systems'
-}
-
+    'api', 'rest api', 'graphql', 'microservices', 'distributed systems',
+    'security', 'cybersecurity', 'ethical hacking', 'penetration testing', 'pen testing', 'network security',
+ }
+ 
     def is_tech_related(self, prompt):
-        """Check if the prompt is related to technology field using AI verification"""
-        try:
-            # First check with our predefined tech fields
-            prompt_lower = prompt.lower()
-            if any(tech in prompt_lower for tech in self.tech_fields):
+        """Check if the prompt is related to technology field"""
+        # First check with our predefined tech fields
+        prompt_lower = prompt.lower()
+        
+        # Split the prompt into words and check each word/phrase
+        words = prompt_lower.split()
+        # Check single words
+        for word in words:
+            if word in self.tech_fields:
                 return True
                 
-            # If not found in predefined list, verify using AI
-            verification_prompt = f"""
-            Is '{prompt}' related to technology, computer science, software, IT, or digital skills?
-            Answer ONLY 'yes' or 'no'. Consider all technical roles, tools, and skills.
-            """
-            
-            response = self.model.generate_content(verification_prompt)
-            if response and response.text:
-                answer = response.text.strip().lower()
-                return answer == 'yes'
+        # Check consecutive pairs of words (for phrases like "machine learning")
+        for i in range(len(words) - 1):
+            phrase = words[i] + " " + words[i + 1]
+            if phrase in self.tech_fields:
+                return True
                 
-            return False
+        # Check if any tech field is a substring of the prompt
+        for tech in self.tech_fields:
+            if tech in prompt_lower:
+                return True
+                
+        return False  # If no tech-related terms found, return False
+
+    def clean_json_response(self, response_text):
+        """Clean and parse JSON response from the model"""
+        response_text = response_text.strip()
+        
+        # Handle markdown code blocks if present
+        if "```json" in response_text:
+            json_str = response_text.split("```json")[1].split("```")[0].strip()
+        elif "```" in response_text:
+            json_str = response_text.split("```")[1].strip()
+        else:
+            json_str = response_text.strip()
             
-        except Exception:
-            # If verification fails, fall back to basic keyword matching
-            return any(tech in prompt_lower for tech in self.tech_fields)
+        return json_str
+
+    def limit_node_count(self, roadmap_json):
+        """Limit the number of nodes at each level"""
+        if not isinstance(roadmap_json, dict):
+            return roadmap_json
+            
+        # Limit main topics to 6
+        if 'children' in roadmap_json:
+            roadmap_json['children'] = roadmap_json['children'][:6]
+            
+            # Limit subtopics for each main topic to 4
+            for main_topic in roadmap_json['children']:
+                if 'children' in main_topic:
+                    main_topic['children'] = main_topic['children'][:4]
+                    
+                    # Limit points for each subtopic to 3
+                    for subtopic in main_topic['children']:
+                        if 'children' in subtopic:
+                            subtopic['children'] = subtopic['children'][:3]
+        
+        return roadmap_json
 
     def transform_roadmap_format(self, roadmap_data):
         """Transform the roadmap output into the format expected by the visualization"""
@@ -109,17 +145,21 @@ class BackupModelGenerator:
 
     def generate_roadmap(self, prompt):
         """Generate roadmap based on the input prompt"""
-        # First verify if the topic is tech-related
         if not self.is_tech_related(prompt):
             return {
                 "success": False,
-                "error": "This model is trained only for technology-related learning roadmaps. Please enter a tech-related topic, role, or skill."
+                "error": "Currently, we only support technology-related learning roadmaps."
             }
             
         try:
-            structured_prompt = f"""Create a comprehensive learning roadmap for {prompt}.
+            structured_prompt = f"""Create a concise learning roadmap for {prompt}.
     
-Return ONLY a valid JSON object in the following format, with no additional text or markdown formatting:
+Return ONLY a valid JSON object with the following rules:
+1. Maximum 5-6 main topics in the "children" array
+2. Each main topic should have 3-4 subtopics maximum
+3. Each subtopic should have 2-3 points maximum
+
+Use this exact format:
 {{
     "name": "{prompt}",
     "children": [
@@ -140,37 +180,40 @@ Return ONLY a valid JSON object in the following format, with no additional text
             ]
         }}
     ]
-}}
-
-IMPORTANT: Return ONLY the JSON object, no additional text or explanation."""
+}}"""
 
             response = self.model.generate_content(structured_prompt)
             
             if not response or not response.text:
                 return None
                 
-            response_text = response.text.strip()
-            
-            if "```json" in response_text:
-                json_str = response_text.split("```json")[1].split("```")[0].strip()
-            elif "```" in response_text:
-                json_str = response_text.split("```")[1].strip()
-            else:
-                json_str = response_text.strip()
-            
-            roadmap_json = json.loads(json_str)
-            transformed_roadmap = self.transform_roadmap_format(roadmap_json)
-            
-            if transformed_roadmap:
-                return {
-                    "success": True,
-                    "roadmap": transformed_roadmap,
-                    "format": "json"
-                }
-            else:
+            try:
+                # Clean and parse the JSON response
+                json_str = self.clean_json_response(response.text)
+                roadmap_json = json.loads(json_str)
+                
+                # Limit the number of nodes
+                roadmap_json = self.limit_node_count(roadmap_json)
+                
+                # Transform to the expected format
+                transformed_roadmap = self.transform_roadmap_format(roadmap_json)
+                
+                if transformed_roadmap:
+                    return {
+                        "success": True,
+                        "roadmap": transformed_roadmap,
+                        "format": "json"
+                    }
+                else:
+                    return {
+                        "success": False,
+                        "error": "Failed to transform roadmap format"
+                    }
+                    
+            except json.JSONDecodeError:
                 return {
                     "success": False,
-                    "error": "Failed to transform roadmap format"
+                    "error": "Failed to generate valid roadmap structure"
                 }
                 
         except Exception as e:
