@@ -30,8 +30,8 @@ An intelligent learning roadmap platform that helps users create and visualize p
 
 1. Clone the repository:
 ```bash
-git clone [your-repository-url]
-cd [repository-name]
+git clone https://github.com/pdlmanoj/CapstoneProject-II.git
+cd CapstoneProject-II
 ```
 
 2. Install frontend dependencies:
@@ -80,33 +80,3 @@ python3 manage.py runserver
 ├── public/             # Static assets
 └── model/             # AI model related files
 ```
-
-## Features in Detail
-
-### 1. Popular Roadmaps
-- Access to 8 predefined learning paths
-- Structured content with main topics and subtopics
-- Interactive visualization with expandable nodes
-
-### 2. Custom Roadmap Generation
-- AI-powered roadmap creation for any learning field
-- Natural language processing for understanding user input
-- Structured output matching predefined roadmap format
-
-### 3. Roadmap Visualization
-- Interactive node-based visualization
-- Expandable/collapsible topics
-- Smooth animations and transitions
-- Pan and zoom capabilities
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
